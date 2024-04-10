@@ -9,13 +9,13 @@ $r = new Php\Primeiroprojeto\Router($metodo, $caminho);
 
 #ROTAS
 
-$r->get('/olamundo', 'Php\ProjetoA\Controllers\HomeController@olaMundo');
+$r->get('/olamundo', 'Php\Primeiroprojeto\Controllers\HomeController@olaMundo');
 
 $r->get('/olapessoa/{nome}', function($params){
     return 'Olá '.$params[1];
 } );
 
-$r->get('/exer1/formulario', 'Php\ProjetoA\Controllers\HomeController@exer1.html');
+$r->get('/exer1/formulario', 'Php\Primeiroprojeto\Controllers\HomeController@formExer1');
 
 $r->post('/exer1/resposta', function(){
     $valor1 = $_POST['valor1'];
@@ -109,6 +109,88 @@ $r->post('/exercicio6/resposta', function(){
     if($valor1 == $valor2) return "Numeros íguais. $valor1";
 });
 
+#7
+$r->get('/exercicio7/formulario', function(){
+    include('exercicio7.html');
+});
+$r->post('/exercicio7/resposta', function(){
+    $valor = $_POST['valor'];
+    $valorCentimetros = $valor * 100;
+    
+    return "$valor metros são $valorCentimetros centimetros";
+});
+
+#8
+$r->get('/exercicio8/formulario', function(){
+    include('exercicio8.html');
+});
+$r->post('/exercicio8/resposta', function(){
+    $valor = $_POST['valor'];
+    $litros = ceil($valor/3);
+    $latas = ceil($litros/18);
+    $custo = $latas * 80;
+    
+    return "serão nescessarias $latas latas de tinta, custando $custo";
+});
+
+#9
+$r->get('/exercicio9/formulario', function(){
+    include('exercicio9.html');
+});
+$r->post('/exercicio9/resposta', function(){
+    $ano_nascimento = $_POST['ano'];
+    $data_nascimento = explode("-", $ano_nascimento);
+
+    $idade = date("Y")-$data_nascimento[0];
+    $dias_vivo = (($idade)*365)-($data_nascimento[1]*30)+($data_nascimento[2]);
+    $idade_futura = 2025-$data_nascimento[0];
+
+    return "Idade atual: $idade <br/> Quantidades de dias que ja viveu: $dias_vivo <br/> Idade em 2025: $idade_futura";
+});
+
+#10
+$r->get('/exercicio10/formulario', function(){
+    include('exercicio10.html');
+});
+$r->post('/exercicio10/resposta', function(){
+    $peso = $_POST['peso'];
+    $altura = $_POST['altura']/100;
+    $classificacao = "";
+
+    $IMC = $peso/$altura**2;
+
+    switch(true){
+        case $IMC < 16:
+            $classificacao = "Magreza Grau 3";
+            break;
+        case 16 <= $IMC && $IMC < 17:
+            $classificacao = "Magreza Grau 2";
+            break;
+        case 17 <= $IMC && $IMC < 18.5:
+            $classificacao = "Magreza Grau 1";
+            break;
+        case 18.5 <= $IMC && $IMC < 25:
+            $classificacao = "Adequado";
+            break;
+        case 25 <= $IMC && $IMC < 30:
+            $classificacao = "Pré-Obeso";
+            break;
+        case 30 <= $IMC && $IMC < 35:
+            $classificacao = "Obesidade Grau 1";
+            break;
+        case 35 <= $IMC && $IMC < 40:
+            $classificacao = "Obesidade Grau 2";
+            break;
+        case 40 <= $IMC:
+            $classificacao = "Obesidade Grau 3";
+            break;
+    }
+
+    return "<h1>Resultado</h1><p>Sua classificação de IMC é $classificacao</p><p>Para mais informações, <a href='https://www.prefeitura.sp.gov.br/cidade/secretarias/saude/noticias/?p=332991'>ver mais</a></p>";
+});
+
+
+
 #ROTAS
 
 $resultado = $r->handler();
@@ -121,7 +203,7 @@ if(!$resultado){
 
 if ($resultado instanceof Closure){
     echo $resultado($r->getParams());
-} elseif ($is_string($resultado)){
+} elseif (is_string($resultado)){
     $resultado = explode("@", $resultado);
     $controller = new $resultado[0];
     $resultado = $resultado[1];

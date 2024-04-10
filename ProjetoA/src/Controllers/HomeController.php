@@ -1,6 +1,6 @@
 <?php
 
-namespace Php\ProjetoA\Controllers;
+namespace Php\Primeiroprojeto\Controllers;
 
 class HomeController{
 
