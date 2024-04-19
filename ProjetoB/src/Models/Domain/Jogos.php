@@ -17,31 +17,31 @@ class Jogos{
     }
 
     public function getId(){
-        return $this->$id;
+        return $this->id;
     }
     public function setId($id){
-        $this->$id = $id;
+        $this->id = $id;
     }
 
     public function getNome(){
-        return $this->$nome;
+        return $this->nome;
     }
     public function setNome($nome){
-        $this->$nome = $nome;
+        $this->nome = $nome;
     }
 
     public function getLancamento(){
-        return $this->$lancamento;
+        return $this->lancamento;
     }
     public function setLancamento($lancamento){
-        $this->$lancamento = $lancamento;
+        $this->lancamento = $lancamento;
     }
 
     public function getPreco(){
-        return $this->$preco;
+        return $this->preco;
     }
     public function setPreco($preco){
-        $this->$preco = $preco;
+        $this->preco = $preco;
     }
 
 

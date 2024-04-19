@@ -17,31 +17,31 @@ class Eventos{
     }
 
     public function getId(){
-        return $this->$id;
+        return $this->id;
     }
     public function setId($id){
-        $this->$id = $id;
+        $this->id = $id;
     }
 
     public function getNome(){
-        return $this->$nome;
+        return $this->nome;
     }
     public function setNome($nome){
-        $this->$nome = $nome;
+        $this->nome = $nome;
     }
 
     public function getInicio(){
-        return $this->$inicio;
+        return $this->inicio;
     }
     public function setInicio($inicio){
-        $this->$inicio = $inicio;
+        $this->inicio = $inicio;
     }
 
     public function getFim(){
-        return $this->$fim;
+        return $this->fim;
     }
     public function setFim($fim){
-        $this->$fim = $fim;
+        $this->fim = $fim;
     }
 
 

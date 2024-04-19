@@ -17,31 +17,31 @@ class Usuario{
     }
 
     public function getId(){
-        return $this->$id;
+        return $this->id;
     }
     public function setId($id){
-        $this->$id = $id;
+        $this->id = $id;
     }
 
     public function getNome(){
-        return $this->$nome;
+        return $this->nome;
     }
     public function setNome($nome){
-        $this->$nome = $nome;
+        $this->nome = $nome;
     }
 
     public function getIdade(){
-        return $this->$idade;
+        return $this->idade;
     }
     public function setIdade($idade){
-        $this->$idade = $idade;
+        $this->idade = $idade;
     }
 
     public function getPais(){
-        return $this->$pais;
+        return $this->pais;
     }
     public function setPais($pais){
-        $this->$pais = $pais;
+        $this->pais = $pais;
     }
 
 

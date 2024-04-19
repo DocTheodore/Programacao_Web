@@ -22,17 +22,17 @@ class Dispositivos{
     }
 
     public function getNome(){
-        return $this->$nome;
+        return $this->nome;
     }
     public function setNome($nome){
-        $this->$nome = $nome;
+        $this->nome = $nome;
     }
 
     public function getQuantidade_Disponivel(){
-        return $this->$quantidade_disponivel;
+        return $this->quantidade_disponivel;
     }
     public function setQuantidade_Disponivel($quantidade_disponivel){
-        $this->$quantidade_disponivel = $quantidade_disponivel;
+        $this->quantidade_disponivel = $quantidade_disponivel;
     }
 
 
