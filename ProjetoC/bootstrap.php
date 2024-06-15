@@ -111,7 +111,7 @@ $r->get('/usuario/{acao}/{status}',
     'Php\Primeiroprojeto\Controllers\UsuarioController@index');
     
 
-#ROTAS
+#ROTAS ===============================
 
 $resultado = $r->handler();
 
