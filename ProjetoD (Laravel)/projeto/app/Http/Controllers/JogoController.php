@@ -10,12 +10,12 @@ class JogoController extends Controller
     public function index()
     {
         $jogos = Jogo::all();
-        return view('jogos.index', compact('jogos'));
+        return view('index', compact('jogos'));
     }
 
     public function create()
     {
-        return view('jogos.create');
+        return view('create');
     }
 
     public function store(Request $request)
@@ -27,17 +27,17 @@ class JogoController extends Controller
         ]);
 
         Jogo::create($request->all());
-        return redirect()->route('jogos.index')->with('success', 'Jogo criado com sucesso.');
+        return redirect()->route('index')->with('success', 'Jogo criado com sucesso.');
     }
 
     public function show(Jogo $jogo)
     {
-        return view('jogos.show', compact('jogo'));
+        return view('show', compact('jogo'));
     }
 
     public function edit(Jogo $jogo)
     {
-        return view('jogos.edit', compact('jogo'));
+        return view('edit', compact('jogo'));
     }
 
     public function update(Request $request, Jogo $jogo)
@@ -49,12 +49,12 @@ class JogoController extends Controller
         ]);
 
         $jogo->update($request->all());
-        return redirect()->route('jogos.index')->with('success', 'Jogo atualizado com sucesso.');
+        return redirect()->route('index')->with('success', 'Jogo atualizado com sucesso.');
     }
 
     public function destroy(Jogo $jogo)
     {
         $jogo->delete();
-        return redirect()->route('jogos.index')->with('success', 'Jogo deletado com sucesso.');
+        return redirect()->route('index')->with('success', 'Jogo deletado com sucesso.');
     }
 }
